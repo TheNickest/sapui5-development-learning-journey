@@ -9,6 +9,7 @@ sap.ui.define(["sap/ui/core/UIComponent"], function (UIComponent) {
     },
 
     init: function () {
+      // call init of super class
       UIComponent.prototype.init.apply(this, arguments);
     },
   });
