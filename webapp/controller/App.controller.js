@@ -7,6 +7,9 @@ sap.ui.define(
     "use strict";
 
     return Controller.extend("sap.training.exc.controller.App", {
+      // to manipulate xml view
+      onInit: function () {},
+
       onSayHello: function () {
         MessageBox.information("Hello World!");
       },
