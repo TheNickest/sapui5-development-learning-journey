@@ -20,13 +20,20 @@
       data-sap-ui-theme="sap_fiori_3_dark"
       data-sap-ui-compatVersion="edge"
       data-sap-ui-async="true"
-      data-sap-ui-onInit="module:sap/training/exc/index"
       data-sap-ui-resourceroots='
         {"sap.training.exc": "./"}'
+      data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"
     ></script>
     <!--sap.training.exc is an alias for the directory seen from the current file-->
     <!--that means, with ../ we could look even in the root folder-->
   </head>
 
-  <body class="sapUiBody" id="content"></body>
+  <body class="sapUiBody" id="content">
+    <div
+      data-sap-ui-component
+      data-id="container"
+      data-name="sap.training.exc"
+      data-settings='{"id": "sap.training.exc"}'
+    ></div>
+  </body>
 </html>
