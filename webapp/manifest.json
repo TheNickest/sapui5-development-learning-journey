@@ -52,6 +52,7 @@
         "sap.ui.core": {},
         "sap.f": {},
         "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
         "sap.ui.generic.app": {},
         "sap.ui.table": {},
         "sap.ushell": {}
@@ -76,6 +77,10 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
+      },
+      "": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/data.json"
       }
     },
     "resources": {
