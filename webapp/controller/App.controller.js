@@ -8,10 +8,9 @@ sap.ui.define(
 
     return Controller.extend("sap.training.exc.controller.App", {
       // to manipulate xml view
-      onInit: function () {},
-
-      onSayHello: function () {
-        MessageBox.information("Hello World!");
+      onInit: function () {
+        var sClass = this.getOwnerComponent().getContentDensityClass();
+        this.getView().addStyleClass(sClass);
       },
     });
   }

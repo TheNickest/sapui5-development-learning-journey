@@ -3,15 +3,15 @@
 
     <Page title="Customer" showNavButton="true" navButtonPress=".onNavButtonPress">
         <content>
-            <Panel headerText="Customer Creation Form" expandable="true" expanded="true">
+            <Panel headerText="Customer Creation Form" expandable="true" expanded="true"
+                class="sapUiResponsiveMargin sapUiHideOnPhone" width="auto">
                 <content>
                     <f:SimpleForm layout="ColumnLayout" editable="true">
                         <f:toolbar>
                             <Toolbar>
                                 <content>
                                     <ToolbarSpacer />
-                                    <Button text="Say Hello" press=".onSayHello" icon="sap-icon://globe" />
-                                    <Button text="Create Customer" press=".onCreateCustomer" icon="sap-icon://create" />
+                                    <Button text="Create Customer" press=".onSave" icon="sap-icon://create" />
                                 </content>
                             </Toolbar>
                         </f:toolbar>
