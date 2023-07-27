@@ -56,19 +56,19 @@
                     <Column>
                         <header><Text text="Customer Name" /></header>
                     </Column>
-                    <Column>
+                    <Column minScreenWidth="Desktop">
                         <header><Text text="Street" /></header>
                     </Column>
-                    <Column>
+                    <Column minScreenWidth="Desktop">
                         <header><Text text="Post Code" /></header>
                     </Column>
                     <Column>
                         <header><Text text="City" /></header>
                     </Column>
-                    <Column>
+                    <Column minScreenWidth="Tablet">
                         <header><Text text="Country" /></header>
                     </Column>
-                    <Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
                         <header><Text text="Email" /></header>
                     </Column>
                 </columns>
@@ -97,13 +97,13 @@
                     <Column>
                         <header><Text text="Flight Date" /></header>
                     </Column>
-                    <Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true">
                         <header><Text text="Class" /></header>
                     </Column>
-                    <Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
                         <header><Text text="Foreign Currency Payment" /></header>
                     </Column>
-                    <Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
                         <header><Text text="Cancellation Status" /></header>
                     </Column>
                 </columns>
