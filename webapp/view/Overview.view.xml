@@ -39,8 +39,17 @@
                     </f:SimpleForm>
                 </content>
             </Panel>
-            <Table headerText="Customers" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto"
-                items="{/Customers}" mode="SingleSelectLeft" selectionChange=".onCustomerChange">
+            <Table id="customerTable" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto"
+                items="{ path: '/Customers', 
+                sorter: [ {path: 'City', group: true}, {path: 'CustomerName', descending: true} ] }"
+                mode="SingleSelectLeft" selectionChange=".onCustomerChange">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Customers" />
+                        <ToolbarSpacer />
+                        <SearchField width="40%" liveChange=".onFilterCustomers" />
+                    </Toolbar>
+                </headerToolbar>
                 <columns>
                     <Column>
                         <header><Text text="Customer Name" /></header>
