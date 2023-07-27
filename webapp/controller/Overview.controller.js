@@ -55,9 +55,24 @@ sap.ui.define(
         var aFilter = [];
         var sQuery = oEvent.getParameter("newValue"); // query
         if (sQuery && sQuery.length > 0) {
-          aFilter.push(
+       /*    aFilter.push(
             new Filter("CustomerName", FilterOperator.Contains, sQuery)
-          );
+          ); */
+          aFilter.push(new Filter({
+            filters: [
+                new Filter({
+                    path: 'CustomerName',
+                    operator: FilterOperator.Contains, 
+                    value1: sQuery
+                }),
+                new Filter({
+                    path: 'City',
+                    operator: FilterOperator.Contains,
+                    value1: sQuery
+                }),
+                ],
+                and: false
+            }));
         }
 
         var oTable = this.byId("customerTable");
@@ -67,3 +82,4 @@ sap.ui.define(
     });
   }
 );
+
