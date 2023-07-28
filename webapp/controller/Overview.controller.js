@@ -18,6 +18,8 @@ sap.ui.define(
       onInit: function () {
         var oModel = new JSONModel();
         this.getView().setModel(oModel, "customer");
+
+        // disable delete button
         this.getView()
           .getModel("customer")
           .setProperty("/bEnableDelete", false);
@@ -79,6 +81,7 @@ sap.ui.define(
           .getBindingContext();
         this.byId("bookingTable").setBindingContext(oBindingContext);
 
+        // enable delete button once a table line was selected
         this.getView().getModel("customer").setProperty("/bEnableDelete", true);
       },
 
