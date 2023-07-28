@@ -3,7 +3,7 @@ sap.ui.define(
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, MessageBox) {
+  function (Controller) {
     "use strict";
 
     return Controller.extend("sap.training.exc.controller.App", {

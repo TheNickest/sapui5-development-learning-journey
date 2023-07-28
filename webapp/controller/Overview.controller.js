@@ -1,17 +1,17 @@
 sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/syncStyleClass",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+    "sap/m/MessageToast",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
-   * @param {typeof sap.ui.core.syncStyleClass} syncStyleClass
+   * @param {typeof sap.m.MessageToast} MessageToast
    * @param {typeof sap.ui.model.json.JSONModel} JSONModel
    */
-  function (Controller, syncStyleClass, JSONModel, Filter, FilterOperator) {
+  function (Controller, JSONModel, Filter, FilterOperator, MessageToast) {
     "use strict";
 
     return Controller.extend("sap.training.exc.controller.Overview", {
@@ -21,23 +21,32 @@ sap.ui.define(
       },
 
       onSave: function () {
-        if (!this.pDialog) {
-          this.pDialog = this.loadFragment({
-            name: "sap.training.exc.view.Dialog",
-          }).then(
-            function (oDialog) {
-              syncStyleClass(
-                this.getOwnerComponent().getContentDensityClass(),
-                this.getView(),
-                oDialog
-              );
-              return oDialog;
-            }.bind(this)
-          );
+        var oModelData = this.getView().getModel("customer").getData();
+        var oResourceBundle = this.getView()
+          .getModel("i18n")
+          .getResourceBundle();
+
+        if (oModelData.Discount === undefined) {
+          oModelData.Discount = 0;
         }
-        this.pDialog.then(function (oDialog) {
-          oDialog.open();
-        });
+
+        this.byId("customerTable")
+          .getBinding("items")
+          .create({
+            Form: oModelData.Form,
+            CustomerName: oModelData.CustomerName,
+            Discount: String(oModelData.Discount),
+            Street: oModelData.Street,
+            PostCode: oModelData.PostCode,
+            City: oModelData.City,
+            Country: oModelData.Country,
+            Email: oModelData.Email,
+            Telephone: oModelData.Telephone,
+          })
+          .created()
+          .then(function () {
+            MessageToast.show(oResourceBundle.getText("customerCreateMessage"));
+          });
       },
 
       onCloseDialog: function () {
@@ -70,6 +79,7 @@ sap.ui.define(
                 }),
               ],
               and: false,
+              caseSensitive: false,
             })
           );
         }
