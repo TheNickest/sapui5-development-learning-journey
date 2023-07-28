@@ -50,6 +50,8 @@
                     <Toolbar>
                         <Title text="{i18n>customerTableHeader}" />
                         <ToolbarSpacer />
+                        <Button text="Delete" press=".onDelete" icon="sap-icon://delete"
+                            enabled="{customer>/bEnableDelete}" />
                         <SearchField width="40%" liveChange=".onFilterCustomers" />
                     </Toolbar>
                 </headerToolbar>
@@ -74,7 +76,7 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem>
+                    <ColumnListItem type="Navigation" press=".onNavToDetails">
                         <cells>
                             <ObjectIdentifier title="{CustomerName}" />
                             <Text text="{Street}" />

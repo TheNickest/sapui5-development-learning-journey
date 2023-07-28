@@ -14,10 +14,13 @@ sap.ui.define(
         // call init of super class
         UIComponent.prototype.init.apply(this, arguments);
 
-        // set Device model
+        // set device model
         var oDeviceModel = new JSONModel(Device);
         oDeviceModel.setDefaultBindingMode("OneWay");
         this.setModel(oDeviceModel, "device");
+
+        // Enable Routing
+        this.getRouter().initialize();
       },
 
       getContentDensityClass: function () {

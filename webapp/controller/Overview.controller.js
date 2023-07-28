@@ -18,6 +18,9 @@ sap.ui.define(
       onInit: function () {
         var oModel = new JSONModel();
         this.getView().setModel(oModel, "customer");
+        this.getView()
+          .getModel("customer")
+          .setProperty("/bEnableDelete", false);
       },
 
       onSave: function () {
@@ -49,6 +52,23 @@ sap.ui.define(
           });
       },
 
+      onDelete: function (oEvent) {
+        var oSelectedItem = this.byId("customerTable").getSelectedItem();
+        var oResourceBundle = this.getView()
+          .getModel("i18n")
+          .getResourceBundle();
+
+        if (oSelectedItem) {
+          var oBindingContext = oSelectedItem.getBindingContext();
+
+          oBindingContext.delete().then(function () {
+            MessageToast.show(
+              oResourceBundle.getText("customerDeletedMessage")
+            );
+          });
+        }
+      },
+
       onCloseDialog: function () {
         this.byId("dialog").close();
       },
@@ -58,6 +78,8 @@ sap.ui.define(
           .getParameter("listItem")
           .getBindingContext();
         this.byId("bookingTable").setBindingContext(oBindingContext);
+
+        this.getView().getModel("customer").setProperty("/bEnableDelete", true);
       },
 
       onFilterCustomers: function (oEvent) {
@@ -87,6 +109,11 @@ sap.ui.define(
         var oTable = this.byId("customerTable");
         var oBinding = oTable.getBinding("items");
         oBinding.filter(aFilter);
+      },
+
+      onNavToDetails: function () {
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("detail");
       },
     });
   }
