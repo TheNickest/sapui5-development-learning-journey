@@ -114,15 +114,16 @@ sap.ui.define(
         oBinding.filter(aFilter);
       },
 
-      onNavToDetails: function (oEevent) {
+      onNavToDetails: function (oEevent, CustomerGuid) {
         var oItem = oEevent.getSource();
         var oRouter = this.getOwnerComponent().getRouter();
 
         oRouter.navTo("detail", {
-          customerId: oItem
-            .getBindingContext()
-            .getPath()
-            .substring("/UX_Customer".length),
+          customerId: `(${CustomerGuid})`,
+          // oItem
+          //   .getBindingContext()
+          //   .getPath()
+          //   .substring("/UX_Customer".length),
         });
       },
     });

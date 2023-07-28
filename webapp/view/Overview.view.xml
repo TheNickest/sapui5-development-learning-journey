@@ -76,7 +76,7 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem type="Navigation" press=".onNavToDetails">
+                    <ColumnListItem type="Navigation" press=".onNavToDetails($event, ${CustomerGuid})">
                         <cells>
                             <ObjectIdentifier title="{CustomerName}" />
                             <Text text="{Street}" />
