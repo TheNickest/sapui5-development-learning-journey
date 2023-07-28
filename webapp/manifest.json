@@ -99,9 +99,7 @@
         "controlId": "app",
         "transition": "slide",
         "bypassed": {
-          "target": [
-            "notFound"
-          ]
+          "target": ["notFound"]
         }
       },
       "routes": [
@@ -112,7 +110,7 @@
         },
         {
           "name": "detail",
-          "pattern": "detail",
+          "pattern": "detail/{customerId}",
           "target": ["detail"]
         }
       ],

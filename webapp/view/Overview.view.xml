@@ -32,7 +32,7 @@
                             <Label text="{i18n>postcodeLabelText}" /><Input value="{customer>/PostCode}" />
                             <Label text="{i18n>cityLabelText}" /><Input value="{customer>/City}" />
                             <Label text="{i18n>countryLabelText}" /><Input value="{customer>/Country}"
-                                placeholder="Country..." />
+                                placeholder="DE, AT, US etc." />
 
                             <core:Title text="{i18n>contactDataFormContainerTitle}"></core:Title>
                             <Label text="E-Mail" /><Input value="{customer>/Email}" />
